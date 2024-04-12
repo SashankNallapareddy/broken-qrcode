@@ -15,14 +15,14 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_DEFAULT_TIMEOUT=100 \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
-# Set the working directory inside the container
-WORKDIR /qr-app
+WORKDIR /myapp
+COPY . /myapp/
+RUN pip install -r requirements.txt
+ENTRYPOINT [ "python" ]
+CMD [ "main.py" ] 
 
 # Install system dependencies
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gcc libpq-dev \
-    && apt-get upgrade \
-    && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends gcc libpq-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
