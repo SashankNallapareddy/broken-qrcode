@@ -14,7 +14,7 @@ load_dotenv()
 QR_DIRECTORY = Path(os.getenv('QR_CODE_DIR', './qr_codes'))
 
 # FILL_COLOR determines the color of the QR code itself. Defaults to 'red'.
-FILL_COLOR = os.getenv('FILL_COLOR', 'red')
+FILL_COLOR = os.getenv('FILL_COLOR', 'black')
 
 # BACK_COLOR sets the background color of the QR code. Defaults to 'white'.
 BACK_COLOR = os.getenv('BACK_COLOR', 'white')

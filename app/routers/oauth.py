@@ -24,7 +24,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Please enter the correct username and password",
             headers={"WWW-Authenticate": "Bearer"},  # Prompt the client to authenticate using Bearer token
         )
     

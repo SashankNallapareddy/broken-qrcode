@@ -52,7 +52,7 @@ def delete_qr_code(file_path: Path):
     Parameters:
     - file_path (Path): The filesystem path of the QR code image to delete.
     """
-    logging.debug(file_path)
+    logging.debug(f"Started deleting the given QR Code : {file_path}")
     if file_path.is_file():
         file_path.unlink()  # Delete the file
         logging.info(f"QR code {file_path.name} deleted successfully")
@@ -60,20 +60,20 @@ def delete_qr_code(file_path: Path):
         logging.error(f"QR code {file_path.name} not found for deletion")
         raise FileNotFoundError(f"QR code {file_path.name} not found")
 
-def create_directory(directory_path: Path):
+def initialize_directory(directory_path: Path):
     """
-    Creates a directory at the specified path if it doesn't already exist.
+    This function is used to create a directory at the given path if it is not present.
     Parameters:
-    - directory_path (Path): The filesystem path of the directory to create.
+    - directory_path (Path): The filesystem path to the directory to be created.
     """
-    logging.debug('Attempting to create directory')
+    logging.debug('Initializing the Directory to save QR Codes ')
     try:
         directory_path.mkdir(parents=True, exist_ok=True)  # Create the directory and any parent directories
     except FileExistsError:
-        logging.info(f"Directory already exists: {directory_path}")
+        logging.info(f"Directory already present: {directory_path}")
     except PermissionError as e:
-        logging.error(f"Permission denied when trying to create directory {directory_path}: {e}")
+        logging.error(f"Permission rejected when trying to create the necessary directory - {directory_path}: {e}")
         raise
     except Exception as e:
-        logging.error(f"Unexpected error creating directory {directory_path}: {e}")
+        logging.error(f"Unexpected error occurred while creating directory - {directory_path}: {e}")
         raise
