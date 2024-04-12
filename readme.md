@@ -1,13 +1,13 @@
-Install
+# RestAPI for Creating QR Codes
 
-Clone
-Make virtual environment: python3 -m venv venv
-Activate virtual environment: source venv/bin/activate
-Install requirements: pip install -r requirements.txt
-IMPORTANT run: mkdir qr_codes to create a qr codes directory to save in, permissions will be messed up and the docker container won't be able to write to the qr_codes directory if you don't.
-Note: make sure docker is started
-run pytest locally to check that it works locally
-Start the app with docker compose up --build
-Goto http://localhost/docs to view openapi spec documentation
-Click "authorize" input username: admin password: secret
-Test making, retrieving, and deleting QR codes on the spec page.
+# Install
+1. Clone
+2. Make virtual environment:  python3 -m venv venv
+3. Activate virtual environment: source venv/bin/activate
+4. Install requirements: pip install -r requirements.txt
+5. Note: make sure docker is started
+6. run pytest locally to check that it works locally
+7. Start the app with docker compose up --build
+8. Goto http://localhost/docs to view openapi spec documentation
+9. Click "authorize" input username: admin password: secret
+10. Test making,  retrieving, and deleting QR codes on the spec page.
